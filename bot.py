@@ -137,7 +137,7 @@ def check_proxy(proxy):
 
 # #Gửi proxy HTTP đã lấy vể telegram - Trả lời lệnh /hp +(số lượng proxy)
 async def send_proxy_hp(rep) -> None:
-    proxies = get_proxy_list()
+    proxies = get_proxy_list_http()
     count = 0
     message = ''
     total_proxies = len(proxies)
@@ -158,7 +158,7 @@ async def send_proxy_hp(rep) -> None:
 
 # #Gửi proxy HTTP đã lấy vể telegram - Trả lời lệnh /hpa +(số lượng proxy)
 async def send_proxy_hpa(rep) -> None:
-    proxies = get_proxy_list()
+    proxies = get_proxy_list_http()
     count = 0
     message = ''
     total_proxies = len(proxies)
