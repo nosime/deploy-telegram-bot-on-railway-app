@@ -297,7 +297,8 @@ async def send_check_proxies(update: Update, context: ContextTypes.DEFAULT_TYPE,
 
 
 
-async def hello(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+@dp.message_handler(commands=['hello'])
+async def commands_hello(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
    await update.message.reply_text(f'Hello {update.effective_user.first_name}')
 
 
@@ -373,8 +374,6 @@ app.add_handler(CommandHandler("sk4a",sk4a ))
 app.add_handler(CommandHandler("sk5",sk5 ))
 app.add_handler(CommandHandler("sk5a",sk5a ))
 app.add_handler(CommandHandler("ck", check_and_send_proxy))
-
-@dp.message_handler(commands=['start'])
 app.run_polling()
 
   
