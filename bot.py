@@ -30,14 +30,6 @@ from telegram import Update, Bot
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
 
-API_TOKEN = '5511970076:AAHbXkdtloQ2fHt3qwrwAm0QZ2yCKfarV0I'
-
-
-bot1 = Bot(token=API_TOKEN)
-dp = Dispatcher(bot1)
-dp.middleware.setup(LoggingMiddleware())
-
-
 # Sử dụng hàm send_telegram_message
 async def send_telegram_message(bot_token, chat_id, message):
     bot = Bot(token=bot_token)
@@ -303,8 +295,8 @@ async def send_check_proxies(update: Update, context: ContextTypes.DEFAULT_TYPE,
 
 
 
-@dp.message_handler(commands=['hello'])
-async def commands_hello(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+
+async def hello(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
    await update.message.reply_text(f'Hello {update.effective_user.first_name}')
 
 
