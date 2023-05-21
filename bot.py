@@ -30,6 +30,14 @@ from telegram import Update, Bot
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
 
+API_TOKEN = '5511970076:AAHbXkdtloQ2fHt3qwrwAm0QZ2yCKfarV0I'
+
+
+bot = Bot(token=API_TOKEN)
+dp = Dispatcher(bot)
+storage = MemoryStorage()
+dp = Dispatcher(bot, storage=storage)
+dp.middleware.setup(LoggingMiddleware())
 
 
 # Sử dụng hàm send_telegram_message
