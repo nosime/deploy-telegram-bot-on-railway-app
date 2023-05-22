@@ -128,13 +128,14 @@ def check_single_proxy_type(proxy):
 
 def check_proxy(proxy):
     # Sử dụng proxy để gửi yêu cầu HTTP và kiểm tra tính sống còn của proxy
-    try:
-        response = requests.get("https://www.google.com", proxies={"http": proxy}, timeout=10)
-        if response.status_code == 200:
-            return True
-    except requests.exceptions.RequestException:
-        pass
-    return False
+	async with httpx.AsyncClient() as client:
+	    try:
+		response = client.get("https://www.google.com", proxies={"http": proxy}, timeout=10)
+		if response.status_code == 200:
+		    return True
+	    except requests.exceptions.RequestException:
+		pass
+	    return False
 
 # #Gửi proxy HTTP đã lấy vể telegram - Trả lời lệnh /hp +(số lượng proxy)
 async def send_proxy_hp(rep) -> None:
